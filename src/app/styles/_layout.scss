@@ -1,0 +1,36 @@
+@import 'responsive';
+$ap-layout__max: 1200px;
+
+@mixin ap-layout {
+    max-width: $ap-layout__max;
+    left: 50%;
+    transform: translate(-50%);
+
+    @include breakpoint(xs) {
+        max-width: calc(100vw - 30px);
+    }
+}
+
+@mixin ap-host($foreground, $background) {
+    color: $foreground;
+    background: $background;
+    height: 100vh;
+    display: block;
+}
+
+@mixin ap-caret($caretColor) {
+    position: relative;
+    $caretDimensions: 30px;
+
+    &::after {
+        content: '';
+        width: 0; 
+        height: 0; 
+        border-left: $caretDimensions solid transparent;
+        border-right: $caretDimensions solid transparent;
+        border-top: $caretDimensions solid $caretColor;
+        position: absolute;
+        top: 0;
+        left: 10%;
+    }
+}

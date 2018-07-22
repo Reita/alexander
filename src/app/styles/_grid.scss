@@ -1,0 +1,12 @@
+@import 'responsive';
+
+@mixin ap-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    @include breakpoint(xs) {
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

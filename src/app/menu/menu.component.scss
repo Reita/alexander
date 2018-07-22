@@ -1,0 +1,51 @@
+@import '../styles/colors';
+@import '../styles/grid';
+@import '../styles/typography';
+@import '../styles/layout';
+@import '../styles/responsive';
+$ap-menu__height: 105px;
+
+:host {
+    @include ap-grid;
+    @include ap-layout;
+    position: fixed;
+    width: 100vw;
+    color: $ap-white;
+    height: $ap-menu__height;
+    z-index: 10;
+
+    @include breakpoint(xs) {
+        display: none;
+    }
+}
+
+:host-context(.ap-menu_scroll) {
+    height: $ap-menu__height * (2 / 3);
+
+    .ap-menu__item {
+        font-size: 0.9rem;
+    }
+}
+
+.ap-menu__item {
+    @include text-body-subtitle;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: rotate(0.05deg);
+
+    &.ap-menu__item_selected,
+    &:hover {
+        background: $ap-white;
+        color: $ap-purple;
+    }
+}
+
+.ap-menu__about {
+    grid-column-start: 6;
+}

@@ -1,0 +1,74 @@
+@import '../styles/colors';
+@import '../styles/grid';
+@import '../styles/layout';
+@import '../styles/typography';
+$ap-about__transtion-time: 36;
+
+:host {
+    @include ap-host($ap-white, $ap-blue);
+    @include ap-caret($ap-purple);
+}
+
+.ap-about__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    transform: rotate(0.05deg);
+
+    // @include breakpoint(xs) {
+    //     grid-column-start: 1;
+    //     grid-column-end: 5;  
+    // }
+}
+
+.ap-about__hello {
+    @include text-body-subtitle-black;
+    @include text-body-subtitle-italic;
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 1.5em;
+
+    &.ap-about__hello_small {
+        font-size: 2rem;
+        padding: 0 0 0 2rem;
+        text-transform: inherit;
+        line-height: inherit;
+    }
+}
+
+.ap-about__splash {
+    grid-column-start: 6;
+    grid-column-end: 9;
+    position: relative;
+}
+
+.ap-about__plasta {
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+        
+    @for $i from 1 through 4 {
+        $initial-delay: -2 * ($i - 4);
+
+        &.ap-about__plasta_#{$i} {
+            background: url('/assets/#{$i}plasta.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            animation-name: plastabg;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-duration: 8s;
+            animation-delay: #{$initial-delay}s;
+        }
+    }
+}
+
+@keyframes plastabg {
+    0% { opacity: 1; } 
+    17% { opacity: 1; } 
+    25% { opacity: 0; } 
+    92% { opacity: 0; } 
+    100% { opacity: 1; }
+}

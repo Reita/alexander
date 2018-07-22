@@ -1,0 +1,65 @@
+@import 'responsive';
+
+@mixin text-big-title {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 4rem;
+    line-height: 1em;
+
+    @include breakpoint(xs) {
+        font-size: 3rem;
+    }
+}
+
+@mixin text-body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6em;
+    font-weight: 400;
+    font-style: normal;    
+}
+
+@mixin text-body-mono {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    line-height: 1em;
+}
+
+@mixin text-body-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.25rem;
+    line-height: 1em;
+}
+
+@mixin text-body-subtitle-black {
+    @include text-body-subtitle;
+    font-weight: 900;
+}
+
+@mixin text-body-subtitle-italic {
+    @include text-body-subtitle;
+    font-style: italic;
+}
+
+.ap-text-big-title {
+    @include text-big-title;
+}
+
+.ap-text-body {
+    @include text-body;
+}
+
+.ap-text-body-subtitle {
+    @include text-body-subtitle;
+}
+
+.ap-text-body-subtitle-black {
+    @include text-body-subtitle-black;
+}
+
+.ap-text-body-subtitle-italic {
+    @include text-body-subtitle-italic;
+}
+
+.ap-text-mono {
+    @include text-body-mono;
+}

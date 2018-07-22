@@ -1,0 +1,14 @@
+@import '../grid';
+@import '../responsive';
+@import '../layout';
+
+.ap-container {
+    @include ap-grid;
+    height: 100vh;
+    max-width: $ap-layout__max;
+    margin: 0 auto;
+
+    @include breakpoint(xs) {
+        max-width: calc(100vw - 20px);
+    }
+}

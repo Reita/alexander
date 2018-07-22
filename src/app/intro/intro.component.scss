@@ -1,0 +1,54 @@
+@import '../styles/colors';
+@import '../styles/grid';
+@import '../styles/layout';
+$ap-intro__logo: 25vh;
+
+:host {
+    @include ap-host($ap-white, $ap-purple);
+}
+
+.ap-intro__logo {
+    background: url('/assets/logo.png');
+    height: $ap-intro__logo;
+    width: $ap-intro__logo;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    animation-name: fadeIn;
+    animation-duration: 0.75s;
+}
+
+.ap-intro__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 8;
+    transform: rotate(0.05deg);
+
+    @include breakpoint(xs) {
+        grid-column-start: 1;
+        grid-column-end: 5;  
+    }
+}
+
+.ap-intro__subtitle {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: $ap-white;
+
+    @include breakpoint(xs) {
+        font-size: 1.1rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}
