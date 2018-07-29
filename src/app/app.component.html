@@ -1,3 +1,17 @@
-<app-menu class="ap-menu_scroll"></app-menu>
-<app-intro></app-intro>
-<app-about></app-about>
+<h1 class="ap-hidden" [innerText]="title"></h1>
+<nav>
+    <h2 class="ap-hidden">Navigation</h2>
+    <a class="ap-hidden" href="#ap-content">Skip to content</a>
+    <app-menu
+        #apMenu
+        [class.ap-menu_small]="enableSmallNav"
+        [class.ap-menu_overlay]="enableOverlayNav">
+    </app-menu>
+</nav>
+<main>
+    <h2 id="ap-content" class="ap-hidden">Main Content</h2>
+    <app-intro></app-intro>
+    <app-about></app-about>
+    <app-gallery></app-gallery>
+    <app-contact></app-contact>
+</main>

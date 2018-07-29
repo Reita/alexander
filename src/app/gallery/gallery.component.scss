@@ -1,0 +1,100 @@
+@import '../styles/colors';
+@import '../styles/grid';
+@import '../styles/layout';
+@import '../styles/typography';
+$ap-about__transtion-time: 36;
+
+:host {
+    @include ap-host($ap-black, $ap-gray);
+    @include ap-caret($ap-blue);
+    min-height: 100vh;
+    height: auto;
+}
+
+.ap-gallery__container {
+    min-height: 100vh;
+    height: auto;
+}
+
+.ap-gallery__content {
+    margin: 20vh 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 8;
+    transform: rotate(0.05deg);
+}
+
+.ap-gallery__grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.ap-gallery__item {
+    position: relative;
+    overflow: hidden;
+    color: $ap-white;
+    height: calc(70vh / 2);
+    transition: box-shadow 0.35s ease;
+
+    &:hover {
+        box-shadow: 0 0 5px rgba($ap-black, 0.5);
+        transition: box-shadow 0.35s ease;
+
+        .ap-gallery_item-content {
+            transform: translate3d(0, 0, 0);
+            transition: all 0.2s ease;
+            opacity: 1;
+        }
+    }
+}
+
+.ap-gallery__link {
+    display: block;
+    background-size: 100% auto;
+    background-position: center center;
+    height: 100%;
+    transition: background-size 0.35s ease, filter 0.35s ease;
+
+    &:link {
+        text-decoration-skip: ink;
+    }
+
+    &:focus,
+    &:hover {
+        filter: grayscale(1) blur(5px);
+        background-size: 110% auto;
+        transition: background-size 0.35s ease, filter 0.35s ease;
+    }
+
+    &:focus {
+        + .ap-gallery_item-content {
+            transform: translate3d(0, 0, 0);
+            transition: all 0.2s ease;
+            opacity: 1;
+        }
+    }
+}
+
+.ap-gallery_item-content {
+    transition: all 0.35s ease;
+    padding: 30px;
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    width: 100%;
+    height: 100%;
+    background: rgba($ap-black, 0.6);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+}
+
+.ap-gallery__item-title {
+    @include text-body-subtitle-black;
+    @include text-body-subtitle-italic;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+} 

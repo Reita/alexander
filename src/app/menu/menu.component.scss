@@ -8,22 +8,49 @@ $ap-menu__height: 105px;
 :host {
     @include ap-grid;
     @include ap-layout;
+    background: rgba($ap-black, 0);
     position: fixed;
     width: 100vw;
+    max-width: 100vw;
     color: $ap-white;
     height: $ap-menu__height;
     z-index: 10;
+    transition: all 0.35s ease;
 
     @include breakpoint(xs) {
         display: none;
     }
 }
 
-:host-context(.ap-menu_scroll) {
+:host-context(.ap-menu_small) {
     height: $ap-menu__height * (2 / 3);
+    transition: all 0.35s ease;
 
     .ap-menu__item {
+        transition: font-size 0.35s ease;
         font-size: 0.9rem;
+    }
+}
+
+:host-context(.ap-menu_overlay) {
+    transform: translate3d(-50%, -80%, 0);
+    background: rgba($ap-white, 1);
+    color: $ap-black;
+    transition: transform 0.35s ease, background 0.35s ease;
+    filter: drop-shadow(0 0 10px rgba($ap-black, 0.5));
+    cursor: pointer;
+
+    &.ap-menu_overlay_focused,
+    &:hover {
+        transform: translate3d(-50%, 0, 0);
+
+        .ap-menu__item {
+            &.ap-menu__item_selected,
+            &:hover {
+                background: $ap-black;
+                color: $ap-white;
+            }
+        }
     }
 }
 

@@ -1,0 +1,17 @@
+.ap-hidden {
+    display: none;
+}
+
+.ap-link {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited {
+        color: inherit;
+    }
+
+    &:focus {
+        outline-width: 3px;
+        outline-style: dotted;
+    }
+}

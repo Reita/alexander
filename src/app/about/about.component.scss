@@ -3,10 +3,16 @@
 @import '../styles/layout';
 @import '../styles/typography';
 $ap-about__transtion-time: 36;
+$ap-about__container: 700px;
 
 :host {
     @include ap-host($ap-white, $ap-blue);
     @include ap-caret($ap-purple);
+    min-height: $ap-about__container;
+}
+
+.ap-about__container {
+    min-height: $ap-about__container;
 }
 
 .ap-about__content {
