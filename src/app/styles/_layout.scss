@@ -16,6 +16,10 @@ $ap-layout__max: 1200px;
     background: $background;
     height: 100vh;
     display: block;
+
+    @include breakpoint(xs) {
+        height: auto;
+    }
 }
 
 @mixin ap-caret($caretColor) {
@@ -32,5 +36,9 @@ $ap-layout__max: 1200px;
         position: absolute;
         top: 0;
         left: 10%;
+
+        @include breakpoint(xs) {
+            top: -1px;
+        }
     }
 }

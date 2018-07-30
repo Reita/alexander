@@ -15,6 +15,11 @@ $ap-intro__logo: 25vh;
     background-size: 100% 100%;
     animation-name: fadeIn;
     animation-duration: 0.75s;
+
+    @include breakpoint(xs) {
+        height: $ap-intro__logo / 1.5;
+        width: $ap-intro__logo / 1.5;
+    }
 }
 
 .ap-intro__content {
@@ -27,8 +32,7 @@ $ap-intro__logo: 25vh;
     transform: rotate(0.05deg);
 
     @include breakpoint(xs) {
-        grid-column-start: 1;
-        grid-column-end: 5;  
+        padding: 5vh 0;
     }
 }
 

@@ -2,6 +2,7 @@
 @import '../styles/grid';
 @import '../styles/layout';
 @import '../styles/typography';
+@import '../styles/responsive';
 
 :host {
     @include ap-host($ap-white,$ap-violet);
@@ -13,9 +14,13 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    grid-column-start: 2;
-    grid-column-end: 8;
+    grid-column-start: 1;
+    grid-column-end: 12;
     transform: rotate(0.05deg);
+
+    @include breakpoint(xs) {
+        margin: 0;
+    }
 }
 
 .ap-contact__header {
@@ -27,27 +32,48 @@
     font-size: 2rem;
     line-height: 0em;
 
+    @include breakpoint(xs) {
+        font-size: 1.5rem;
+    }
+
     &.ap-contact__title_small {
         font-size: 1.25rem;
+
+        @include breakpoint(xs) {
+            font-size: 1rem;
+        }
     }
 
     &.ap-contact__title_large {
         font-size: 2.5rem;
         padding: 0 0 20px;
+
+        @include breakpoint(xs) {
+            font-size: 1.75rem;
+        }
     }
 
     &.ap-contact__title_italic {
         @include text-body-subtitle-italic;
+
+        @include breakpoint(xs) {
+            font-size: 1.75rem;
+            line-height: 1em;
+        }
     }
 }
 
 .ap-contact__list {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);;
     margin: 50px 0 0;
     padding: 0;
     list-style: none;
+
+    @include breakpoint(xs) {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
 }
 
 .ap-contact__link {
@@ -74,6 +100,10 @@
     font-size: 5rem;
     position: relative;
     cursor: pointer;
+
+    @include breakpoint(xs) {
+        font-size: 2rem;
+    }
     
     &:hover {
         .ap-contact__item-text {
@@ -89,6 +119,7 @@
 }
 
 .ap-contact__item-text {
+    @include text-body-subtitle-black;
     display: block;
     visibility: hidden;
     position: absolute;
@@ -96,27 +127,32 @@
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: $ap-white;
+    color: $ap-violet;
+    font-size: 1.3rem;
 
-        @include text-body-subtitle-black;
-        position: relative;
-        padding: 10px 20px;
-        border-radius: 5px;
-        background: $ap-white;
-        color: $ap-violet;
-        font-size: 1.3rem;
+    @include breakpoint(xs) {
+        font-size: 1.1rem;
+        padding: 10px 0;
+        background: none;
+        color: $ap-white;
+    }
 
-        &:after {
-            content: '';
-            width: 0; 
-            height: 0; 
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid $ap-white;
-            position: absolute;
-            top: 1px;
-            left: 50%;
-            transform: translate3d(-50%, -100%, 0) rotate(180deg);
-        }
+    &:after {
+        content: '';
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $ap-white;
+        position: absolute;
+        top: 1px;
+        left: 50%;
+        transform: translate3d(-50%, -100%, 0) rotate(180deg);
+    }
 }
 
 @keyframes bounceItem {

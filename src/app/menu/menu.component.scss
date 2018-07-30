@@ -4,6 +4,7 @@
 @import '../styles/layout';
 @import '../styles/responsive';
 $ap-menu__height: 105px;
+$ap-menu-transition: 0.4s ease;
 
 :host {
     @include ap-grid;
@@ -15,7 +16,7 @@ $ap-menu__height: 105px;
     color: $ap-white;
     height: $ap-menu__height;
     z-index: 10;
-    transition: all 0.35s ease;
+    transition: all $ap-menu-transition;
 
     @include breakpoint(xs) {
         display: none;
@@ -24,10 +25,10 @@ $ap-menu__height: 105px;
 
 :host-context(.ap-menu_small) {
     height: $ap-menu__height * (2 / 3);
-    transition: all 0.35s ease;
+    transition: all $ap-menu-transition;
 
     .ap-menu__item {
-        transition: font-size 0.35s ease;
+        transition: font-size $ap-menu-transition;
         font-size: 0.9rem;
     }
 }
@@ -36,7 +37,7 @@ $ap-menu__height: 105px;
     transform: translate3d(-50%, -80%, 0);
     background: rgba($ap-white, 1);
     color: $ap-black;
-    transition: transform 0.35s ease, background 0.35s ease;
+    transition: transform $ap-menu-transition, background $ap-menu-transition;
     filter: drop-shadow(0 0 10px rgba($ap-black, 0.5));
     cursor: pointer;
 
@@ -47,10 +48,29 @@ $ap-menu__height: 105px;
         .ap-menu__item {
             &.ap-menu__item_selected,
             &:hover {
-                background: $ap-black;
+                background: $ap-blue;
                 color: $ap-white;
             }
         }
+    }
+
+    .ap-menu__logo {
+        opacity: 1;
+        transition: opacity $ap-menu-transition;
+    }
+}
+
+.ap-menu__logo {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity $ap-menu-transition;
+
+    &::after {
+        content: 'Ale Alexander';
     }
 }
 

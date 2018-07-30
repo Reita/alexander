@@ -10,5 +10,7 @@
 
     @include breakpoint(xs) {
         max-width: calc(100vw - 20px);
+        height: auto;
+        padding: 10vh 30px;
     }
 }

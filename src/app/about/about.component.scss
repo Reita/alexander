@@ -12,21 +12,21 @@ $ap-about__container: 700px;
 }
 
 .ap-about__container {
+    padding: 0 20px;
     min-height: $ap-about__container;
+
+    @include breakpoint(xs) {
+        padding: 10vh 30px;
+    }
 }
 
 .ap-about__content {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 6;
     transform: rotate(0.05deg);
-
-    // @include breakpoint(xs) {
-    //     grid-column-start: 1;
-    //     grid-column-end: 5;  
-    // }
 }
 
 .ap-about__hello {
@@ -46,14 +46,22 @@ $ap-about__container: 700px;
 
 .ap-about__splash {
     grid-column-start: 6;
-    grid-column-end: 9;
+    grid-column-end: 12;
     position: relative;
+
+    @include breakpoint(xs) {
+        height: 50vh;
+    }
 }
 
 .ap-about__plasta {
     height: 100vh;
     position: absolute;
     width: 100%;
+
+    @include breakpoint(xs) {
+        height: 50vh;
+    }
         
     @for $i from 1 through 4 {
         $initial-delay: -2 * ($i - 4);
@@ -67,6 +75,10 @@ $ap-about__container: 700px;
             animation-iteration-count: infinite;
             animation-duration: 8s;
             animation-delay: #{$initial-delay}s;
+
+            @include breakpoint(xs) {
+                background-size: 100% 100%;
+            }
         }
     }
 }

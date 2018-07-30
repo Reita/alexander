@@ -176,6 +176,10 @@ export class GalleryComponent {
       tags: ['Cartooning', 'Drawing', 'Illustration']
     }
   ];
+
+  public getTags(tags: string[]): string {
+    return tags.join(', ');
+  }
 }
 
 export interface GalleryItem {
