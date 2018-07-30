@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ContactComponent } from './contact/contact.component';
+import { VisibleDirective } from './visible.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactComponent } from './contact/contact.component';
     MenuComponent,
     AboutComponent,
     GalleryComponent,
-    ContactComponent
+    ContactComponent,
+    VisibleDirective
   ],
   imports: [
     BrowserModule

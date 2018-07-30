@@ -3,6 +3,7 @@
 @import '../styles/layout';
 @import '../styles/typography';
 @import '../styles/responsive';
+$ap-line-break__icon: 2rem;
 
 %ap-gallery_item-content {
     transform: translate3d(0, 0, 0);
@@ -20,10 +21,38 @@
 .ap-gallery__title {
     @include text-body-subtitle-black;
     @include text-body-subtitle-italic;
+    position: relative;
     font-size: 2rem;
     margin: 0 0 0.5em;
     text-transform: inherit;
     line-height: inherit;
+    overflow: hidden;
+
+    &.ap-gallery__title_grow {
+        &::before {
+            content: '';
+            display: block;
+            border-bottom: 1px solid $ap-black;
+            width: 100vw;
+            position: absolute;
+            top: 50%;
+            left: 140px;
+            transform: translateY(-50%);
+            animation-name: galleryAnimation;
+            animation-timing-function: ease-in-out;
+            animation-duration: 0.52s;
+        }
+    }
+}
+
+@keyframes galleryAnimation {
+    0% {
+        width: 0;
+    } 
+
+    100% {
+        width: 100vw;
+    }
 }
 
 .ap-gallery__container {
