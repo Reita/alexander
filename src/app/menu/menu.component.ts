@@ -9,6 +9,8 @@ export class MenuComponent implements AfterViewInit {
   @ViewChildren('menuItem') menuList: QueryList<ElementRef>;
   @HostBinding('class.ap-menu_overlay_focused') menuFocused = false;
 
+  public isActive = false;
+
   constructor(
     private renderer: Renderer2,
     public elementRef: ElementRef
@@ -31,5 +33,9 @@ export class MenuComponent implements AfterViewInit {
       });
 
     });
+  }
+
+  onClick(): void {
+    this.isActive = !this.isActive;
   }
 }

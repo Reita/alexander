@@ -3,6 +3,7 @@
 @import '../styles/typography';
 @import '../styles/layout';
 @import '../styles/responsive';
+@import '../styles/hamburgers/hamburgers';
 $ap-menu__height: 105px;
 $ap-menu-transition: 0.4s ease;
 
@@ -88,7 +89,7 @@ $ap-menu-transition: 0.4s ease;
         padding: 20px;
         width: 40px;
         height: 40px;
-        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+        filter: drop-shadow(0.05em 0.05em $ap-black);
     }
 }
 
