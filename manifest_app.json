@@ -1,0 +1,13 @@
+{
+    "name": "alexander-pink-pwa",
+    "short_name": "alexander",
+    "start_url": "index.html",
+    "display": "standalone",
+    "icons": [{
+        "src": "assets/app_home_icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }],
+    "background_color": "#488aff",
+    "theme_color": "#488aff"
+}

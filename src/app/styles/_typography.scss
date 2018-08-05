@@ -6,25 +6,35 @@
     line-height: 1em;
 
     @include breakpoint(xs) {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+
+    ::ng-deep .ap-fout & {
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
 
 @mixin text-body {
+    @include sans-serif-fout;
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     line-height: 1.6em;
     font-weight: 400;
-    font-style: normal;    
+    font-style: normal;
 }
 
 @mixin text-body-mono {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     line-height: 1em;
+
+    ::ng-deep .ap-fout & {
+        font-family: 'Courier New', Courier, monospace;
+    }
 }
 
 @mixin text-body-subtitle {
+    @include sans-serif-fout;
     font-family: 'Roboto', sans-serif;
     font-size: 2.25rem;
     line-height: 1em;
@@ -32,12 +42,19 @@
 
 @mixin text-body-subtitle-black {
     @include text-body-subtitle;
-    font-weight: 900;
+    @include sans-serif-fout;
 }
 
 @mixin text-body-subtitle-italic {
     @include text-body-subtitle;
+    @include sans-serif-fout;
     font-style: italic;
+}
+
+@mixin sans-serif-fout {
+    ::ng-deep .ap-fout & {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 }
 
 .ap-text-big-title {

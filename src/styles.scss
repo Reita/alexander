@@ -9,3 +9,8 @@
 /* Components */
 @import 'app/styles/components/line-break';
 @import 'app/styles/components/container';
+
+/* Variablrs */
+:root {
+    --root-height: 100vh;
+}

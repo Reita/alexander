@@ -4,13 +4,13 @@
 
 .ap-container {
     @include ap-grid;
-    height: 100vh;
+    height: var(--root-height);
     max-width: $ap-layout__max;
     margin: 0 auto;
 
     @include breakpoint(xs) {
         max-width: calc(100vw - 20px);
         height: auto;
-        padding: 10vh 30px;
+        padding: 5rem 30px;
     }
 }

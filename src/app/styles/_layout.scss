@@ -14,7 +14,7 @@ $ap-layout__max: 1200px;
 @mixin ap-host($foreground, $background) {
     color: $foreground;
     background: $background;
-    height: 100vh;
+    height: var(--root-height);
     display: block;
 
     @include breakpoint(xs) {

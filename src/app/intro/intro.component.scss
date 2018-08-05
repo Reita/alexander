@@ -1,7 +1,7 @@
 @import '../styles/colors';
 @import '../styles/grid';
 @import '../styles/layout';
-$ap-intro__logo: 25vh;
+$ap-intro__logo: 12.5rem;
 
 :host {
     @include ap-host($ap-white, $ap-purple);
@@ -17,8 +17,13 @@ $ap-intro__logo: 25vh;
     animation-duration: 0.75s;
 
     @include breakpoint(xs) {
-        height: $ap-intro__logo / 1.5;
-        width: $ap-intro__logo / 1.5;
+        height: 125px;
+        width: 125px;
+    }
+
+    @include landscape {
+        height: 125px;
+        width: 125px;
     }
 }
 
@@ -32,7 +37,7 @@ $ap-intro__logo: 25vh;
     transform: rotate(0.05deg);
 
     @include breakpoint(xs) {
-        padding: 5vh 0;
+        padding: 2.5rem 0;
     }
 }
 

@@ -16,7 +16,7 @@ $ap-about__container: 700px;
     min-height: $ap-about__container;
 
     @include breakpoint(xs) {
-        padding: 10vh 30px;
+        padding: 5rem 30px;
     }
 }
 
@@ -50,17 +50,27 @@ $ap-about__container: 700px;
     position: relative;
 
     @include breakpoint(xs) {
-        height: 50vh;
+        height: 20rem;
+    }
+
+    @include landscape {
+        display: flex;
+        justify-content: center;
     }
 }
 
 .ap-about__plasta {
-    height: 100vh;
+    height: var(--root-height);
     position: absolute;
     width: 100%;
 
     @include breakpoint(xs) {
-        height: 50vh;
+        height: 25rem;
+    }
+
+    @include landscape {
+        width: 25rem;
+        margin: 0 auto;
     }
         
     @for $i from 1 through 4 {
@@ -77,7 +87,7 @@ $ap-about__container: 700px;
             animation-delay: #{$initial-delay}s;
 
             @include breakpoint(xs) {
-                background-size: 100% 100%;
+                background-size: 100%;
             }
         }
     }

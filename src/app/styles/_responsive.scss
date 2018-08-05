@@ -6,16 +6,24 @@
         @media (min-width: 64em) { @content ; }
      }
        @else if $class == md {
-        @media (min-width: 50em) { @content ; }
+        @media (min-width: 601px) { @content ; }
      }
       @else if $class == sm {
         @media (min-width: 37.5em)  { @content ; }
      }
      @else if $class == xs {
         @media (max-width: 37.5em)  { @content ; }
-   
+        @include landscape {
+            @content;
+        }
      }
     @else {
         @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+}
+
+@mixin landscape {
+    @media (min-width: 481px) and (max-width: 812px) {
+        @content;
     }
 }
