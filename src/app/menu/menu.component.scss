@@ -32,7 +32,7 @@ $ap-menu-transition: 0.4s ease;
 }
 
 :host-context(.ap-menu_small) {
-    @include breakpoint(lg) {
+    @include breakpoint(md) {
         height: $ap-menu__height * (2 / 3);
         transition: all $ap-menu-transition;
 
@@ -44,7 +44,7 @@ $ap-menu-transition: 0.4s ease;
 }
 
 :host-context(.ap-menu_overlay) {
-    @include breakpoint(lg) {
+    @include breakpoint(md) {
         transform: translate3d(-50%, -80%, 0);
         background: rgba($ap-white, 1);
         color: $ap-black;
