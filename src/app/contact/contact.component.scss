@@ -82,6 +82,8 @@
     width: 100%;
     outline: none;
 
+    &.ap-contact__link_enabled,
+    &:hover,
     &:focus {
         .ap-contact__item-text {
             visibility: visible;
@@ -103,18 +105,6 @@
 
     @include breakpoint(xs) {
         font-size: 2rem;
-    }
-    
-    &:hover {
-        .ap-contact__item-text {
-            visibility: visible;
-            animation-name: bounceItem;
-            animation-duration: 1s;
-            animation-timing-function: ease;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-            transform-origin: center bottom;
-        }
     }
 }
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit, Renderer2, ViewChildren, QueryList, HostBinding } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, Renderer2, ViewChildren, QueryList, HostBinding, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -6,6 +6,7 @@ import { Component, ElementRef, AfterViewInit, Renderer2, ViewChildren, QueryLis
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements AfterViewInit {
+  @Output() clickedMenu: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChildren('menuItem') menuList: QueryList<ElementRef>;
   @HostBinding('class.ap-menu_overlay_focused') menuFocused = false;
 
@@ -37,5 +38,6 @@ export class MenuComponent implements AfterViewInit {
 
   onClick(): void {
     this.isActive = !this.isActive;
+    this.clickedMenu.emit(this.isActive);
   }
 }

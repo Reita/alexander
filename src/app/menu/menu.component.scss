@@ -72,6 +72,33 @@ $ap-menu-transition: 0.4s ease;
     }
 }
 
+:host-context(.ap-menu_mobile-overlay) {
+    height: 100vh;
+    background: rgba($ap-black, 1);
+    color: $ap-white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .ap-menu__logo {
+        display: block;
+        opacity: 1;
+        position: static;
+        font-size: 3rem;
+        margin: 0 0 50px;
+    }
+
+    .ap-menu__item {
+        @include text-body;
+        font-size: 1.4rem;
+        display: block;
+        text-align: center;
+        padding: 20px;
+        width: 100vw;
+        height: auto;
+    }
+}
+
 .ap-menu__burger {
     display: none;
 

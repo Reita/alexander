@@ -1,5 +1,5 @@
 <h3 class="ap-hidden">Contact</h3>
-<div class="ap-container">
+<div class="ap-container" id="contact">
   <div class="ap-contact__content">
     <div class="ap-contact__header">
       <p class="ap-contact__title">Have a question or</p>
@@ -10,40 +10,14 @@
     </div>
 
     <ul class="ap-contact__list">
-      <li class="ap-contact__item">
-        <a class="ap-link ap-contact__link" href="/assets/resume.pdf" aria-label="Link to Ale Alexander's resume in PDF format">
-          <i class="far fa-file-pdf"></i>
-          <span class="ap-contact__item-text">Resume</span>
-        </a>
-      </li>
-      <li class="ap-contact__item">
-        <a class="ap-link ap-contact__link" href="https://www.behance.net/alealexander" aria-label="Link to Ale Alexander's Behance profile">
-          <i class="fab fa-behance"></i>
-          <span class="ap-contact__item-text">Behance</span>
-        </a>
-      </li>
-      <li class="ap-contact__item">
-        <a class="ap-link ap-contact__link" href="https://twitter.com/Horror_neko" aria-label="Link to Ale Alexander's Twitter profile">
-          <i class="fab fa-twitter"></i>
-          <span class="ap-contact__item-text">Twitter</span>
-        </a>
-      </li>
-      <li class="ap-contact__item">
-        <a class="ap-link ap-contact__link" href="https://www.instagram.com/horror_neko/" aria-label="Link to Ale Alexander's Instagram account">
-          <i class="fab fa-instagram"></i>
-          <span class="ap-contact__item-text">Instagram</span>
-        </a>
-      </li>
-      <li class="ap-contact__item">
-        <a class="ap-link ap-contact__link" href="https://www.flickr.com/photos/yasu-chan/" aria-label="Link to Ale Alexander's Flickr photo gallery">
-          <i class="fab fa-flickr"></i>
-          <span class="ap-contact__item-text">Flickr</span>
-        </a>
-      </li>
-      <li class="ap-contact__item">
-        <a class="ap-link ap-contact__link" href="mailto:ale@alexander.pink" aria-label="Do you want to email Ale Alexander? Send me a line">
-          <i class="fas fa-at"></i>
-          <span class="ap-contact__item-text">Email</span>
+      <li *ngFor="let item of contactItems; index as i" class="ap-contact__item">
+        <a class="ap-link ap-contact__link"
+          [class.ap-contact__link_enabled]="item.toggle"
+          [href]="item.link"
+          [attr.aria-label]="getAriaLabel(item.ariaLabel, i)"
+          (click)="toggleService.toggle(item, contactItems, $event)">
+          <i [class]="item.iconClass"></i>
+          <span class="ap-contact__item-text" [innerText]="item.text"></span>
         </a>
       </li>
     </ul>

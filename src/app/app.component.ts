@@ -11,6 +11,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   public title = 'Ale Alexander | Portfolio';
   public enableSmallNav = false;
   public enableOverlayNav = false;
+  public enableMobileOverlay = false;
 
   private window: Window = window;
   private menuHeight = 0;
@@ -49,7 +50,22 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.menuHeight = this.apMenu.elementRef.nativeElement.offsetHeight;
   }
 
+  public onClick(flag: boolean) {
+    this.enableMobileOverlay = flag;
+
+    this.toggleScroll();
+  }
+
   private updateCalculatedViewportHeight(): void {
     document.documentElement.style.setProperty(`--root-height`, `${this.window.innerHeight}px`);
+  }
+
+  private toggleScroll() {
+    const bodyElement = document.querySelector('body');
+    if (this.enableMobileOverlay) {
+      this.renderer.addClass(bodyElement, 'ap-no-scroll');
+    } else {
+      this.renderer.removeClass(bodyElement, 'ap-no-scroll');
+    }
   }
 }

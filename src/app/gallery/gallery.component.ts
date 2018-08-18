@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ToggleService } from '../toggle.service';
 
 @Component({
   selector: 'app-gallery',
@@ -177,28 +178,10 @@ export class GalleryComponent {
     }
   ];
 
+  constructor(public toggleService: ToggleService) { }
+
   public getTags(tags: string[]): string {
     return tags.join(', ');
-  }
-
-  public onClick(galleryItem: GalleryItem, event: TouchEvent): void {
-    galleryItem.toggle = !!!galleryItem.toggle;
-
-    if (galleryItem.toggle && this.getCalculatedViewPortSize() < 600) {
-      event.preventDefault();
-    }
-
-    this.galleryItems.forEach((item: GalleryItem) => {
-      item.toggle = false;
-    });
-
-    galleryItem.toggle = !!!galleryItem.toggle;
-  }
-
-  private getCalculatedViewPortSize(): number {
-    const windowComputedStyles = window.getComputedStyle(document.documentElement);
-    const windowWidth = windowComputedStyles.width;
-    return Number(windowWidth.replace('px', ''));
   }
 }
 

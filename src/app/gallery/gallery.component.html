@@ -1,9 +1,9 @@
 <h3 class="ap-hidden">My Work</h3>
-<div class="ap-container ap-gallery__container">
+<div class="ap-container ap-gallery__container" id="portfolio">
   <div class="ap-gallery__content">
     <div appVisible="ap-gallery__title_grow" class="ap-gallery__title">Portfolio</div>
     <div class="ap-gallery__grid">
-      <div class="ap-gallery__item" [class.ap-gallery__item_enabled]="item.toggle" *ngFor="let item of galleryItems" (click)="onClick(item, $event)">
+      <div class="ap-gallery__item" [class.ap-gallery__item_enabled]="item.toggle" *ngFor="let item of galleryItems" (click)="toggleService.toggle(item, galleryItems, $event)">
         <a class="ap-gallery__link" [href]="item.link" [title]="item.title" [style.backgroundImage]="'url('+ item.imageUrl +')'">
           <span class="ap-hidden" [innerText]="item.title"></span>
         </a>

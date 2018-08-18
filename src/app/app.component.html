@@ -1,11 +1,13 @@
 <h1 class="ap-hidden" [innerText]="title"></h1>
 <nav>
     <h2 class="ap-hidden">Navigation</h2>
-    <a class="ap-hidden" href="#ap-content">Skip to content</a>
+    <a class="ap-hidden" href="#about">Skip to content</a>
     <app-menu
         #apMenu
         [class.ap-menu_small]="enableSmallNav"
-        [class.ap-menu_overlay]="enableOverlayNav">
+        [class.ap-menu_overlay]="enableOverlayNav"
+        [class.ap-menu_mobile-overlay]="enableMobileOverlay"
+        (clickedMenu)="onClick($event)">
     </app-menu>
 </nav>
 <main>
