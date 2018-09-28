@@ -18,7 +18,7 @@ export class ToggleService {
     clickableItem.toggle = !!!clickableItem.toggle;
   }
 
-  private getCalculatedViewPortSize(): number {
+  public getCalculatedViewPortSize(): number {
     const windowComputedStyles = window.getComputedStyle(document.documentElement);
     const windowWidth = windowComputedStyles.width;
     return Number(windowWidth.replace('px', ''));

@@ -34,7 +34,7 @@ $ap-about__container: 700px;
     @include text-body-subtitle-italic;
     text-transform: uppercase;
     font-size: 4rem;
-    line-height: 1.5em;
+    line-height: 1.5;
 
     &.ap-about__hello_small {
         font-size: 2rem;

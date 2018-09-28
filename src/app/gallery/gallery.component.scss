@@ -23,35 +23,38 @@ $ap-gallery__title--width: calc(100vw - 160px - 20px);
     @include text-body-subtitle-black;
     @include text-body-subtitle-italic;
     position: relative;
-    font-size: 2rem;
-    margin: 0 0 0.5em;
+    font-size: 4rem;
+    margin: 0 0 10px;
     text-transform: inherit;
-    line-height: inherit;
+    line-height: 1;
     overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
 
     @include breakpoint(xs) {
+        font-size: 3rem;
         padding: 0 20px;
     } 
 
     &.ap-gallery__title_grow {
-        &::before {
-            content: '';
-            display: block;
-            border-bottom: 1px solid $ap-black;
-            width: 100vw;
-            position: absolute;
-            top: 50%;
-            left: 160px;
-            transform: translateY(-50%);
-            animation-name: galleryAnimation;
-            animation-timing-function: ease-in-out;
-            animation-duration: 0.52s;
+        // &::before {
+        //     content: '';
+        //     display: block;
+        //     border-bottom: 1px solid $ap-black;
+        //     width: 100vw;
+        //     position: absolute;
+        //     top: 50%;
+        //     left: 160px;
+        //     transform: translateY(-50%);
+        //     animation-name: galleryAnimation;
+        //     animation-timing-function: ease-in-out;
+        //     animation-duration: 0.52s;
 
-            @include breakpoint(xs) {
-                width: $ap-gallery__title--width;
-                animation-name: galleryMobileAnimation;
-            }
-        }
+        //     @include breakpoint(xs) {
+        //         width: $ap-gallery__title--width;
+        //         animation-name: galleryMobileAnimation;
+        //     }
+        // }
     }
 }
 
@@ -86,7 +89,7 @@ $ap-gallery__title--width: calc(100vw - 160px - 20px);
 }
 
 .ap-gallery__content {
-    margin: 10rem 0 2.5rem;
+    margin: 5rem 0 2.5rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -179,7 +182,7 @@ $ap-gallery__title--width: calc(100vw - 160px - 20px);
     @include text-body-subtitle-italic;
     text-transform: uppercase;
     font-size: 1.5rem;
-    line-height: 1.5em;
+    line-height: 1.5;
 }
 
 .ap-gallery__item-tags {
@@ -189,12 +192,13 @@ $ap-gallery__title--width: calc(100vw - 160px - 20px);
     color: $ap-bright-blue;
 }
 
-.ap-gallery__footer {
+.ap-gallery__behance-link {
     text-transform: unset;
-    text-align: right;
+    text-align: center;
+    margin-top: 0;
 }
 
-.ap-gallery__footer-link {
+.ap-gallery__behance-link-link {
     @include breakpoint(xs) {
         display: block;
         margin: 0 auto;

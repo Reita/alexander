@@ -9,7 +9,6 @@ import { FontObserverService } from './font-observer.service';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   public title = 'Ale Alexander | Portfolio';
-  public enableSmallNav = false;
   public enableOverlayNav = false;
   public enableMobileOverlay = false;
 
@@ -29,7 +28,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     const windowScrollPosition = this.window.scrollY;
     const windowHeight = this.window.innerHeight;
 
-    this.enableSmallNav = windowScrollPosition > windowHeight;
     this.enableOverlayNav = windowScrollPosition > windowHeight;
   }
 

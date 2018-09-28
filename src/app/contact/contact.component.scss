@@ -30,7 +30,7 @@
 .ap-contact__title {
     @include text-body-subtitle-black;
     font-size: 2rem;
-    line-height: 0em;
+    line-height: 0;
 
     @include breakpoint(xs) {
         font-size: 1.5rem;
@@ -58,7 +58,7 @@
 
         @include breakpoint(xs) {
             font-size: 1.75rem;
-            line-height: 1em;
+            line-height: 1;
         }
     }
 }

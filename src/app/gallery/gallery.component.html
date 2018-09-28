@@ -2,6 +2,12 @@
 <div class="ap-container ap-gallery__container" id="portfolio">
   <div class="ap-gallery__content">
     <div appVisible="ap-gallery__title_grow" class="ap-gallery__title">Portfolio</div>
+    <p class="ap-gallery__item-title ap-gallery__behance-link">
+      <a class="ap-link ap-gallery__behance-link-link" href="https://www.behance.net/alealexander">You can see more of my
+        work over at
+        <span class="ap-blue ap-underline">Behance</span>.
+      </a>
+    </p>
     <div class="ap-gallery__grid">
       <div class="ap-gallery__item" [class.ap-gallery__item_enabled]="item.toggle" *ngFor="let item of galleryItems" (click)="toggleService.toggle(item, galleryItems, $event)">
         <a class="ap-gallery__link" [href]="item.link" [title]="item.title" [style.backgroundImage]="'url('+ item.imageUrl +')'">
@@ -14,10 +20,5 @@
         </div>
       </div>
     </div>
-    <p class="ap-gallery__item-title ap-gallery__footer">
-      <a class="ap-link ap-gallery__footer-link" href="https://www.behance.net/alealexander">You can see more of my work over at
-        <span class="ap-blue">Behance</span>.
-      </a>
-    </p>
   </div>
 </div>

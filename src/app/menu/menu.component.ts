@@ -1,4 +1,5 @@
 import { Component, ElementRef, AfterViewInit, Renderer2, ViewChildren, QueryList, HostBinding, Output, EventEmitter } from '@angular/core';
+import { ToggleService } from '../toggle.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +15,8 @@ export class MenuComponent implements AfterViewInit {
 
   constructor(
     private renderer: Renderer2,
-    public elementRef: ElementRef
+    public elementRef: ElementRef,
+    private toggleService: ToggleService
   ) { }
 
   ngAfterViewInit() {
@@ -36,8 +38,14 @@ export class MenuComponent implements AfterViewInit {
     });
   }
 
-  onClick(): void {
+  public onClick(): void {
     this.isActive = !this.isActive;
     this.clickedMenu.emit(this.isActive);
+  }
+
+  public toggleMenu(): void {
+    if (this.toggleService.getCalculatedViewPortSize() < 813) {
+      this.onClick();
+    }
   }
 }
